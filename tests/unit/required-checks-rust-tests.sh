@@ -36,7 +36,8 @@ source "$SCRIPT_DIR/../framework/helpers/required-checks.sh"
 CI_WORKFLOW="${CI_WORKFLOW:-$PROJECT_ROOT/.github/workflows/ci.yml}"
 MATRIX_SCRIPT="${MATRIX_SCRIPT:-$PROJECT_ROOT/bin/rust-test-matrix.sh}"
 
-readonly FULL='["ubuntu-26.04","macos-26","windows-2025"]'
+# Tracks the fork-local matrix in bin/rust-test-matrix.sh (macos-26 dropped).
+readonly FULL='["ubuntu-26.04","windows-2025"]'
 readonly SKIP_MATRIX='["ubuntu-26.04"]'
 # The detector's whole answer, as the two lines it appends to $GITHUB_OUTPUT.
 readonly RUN_FULL="run=true matrix=$FULL"

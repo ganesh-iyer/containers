@@ -27,7 +27,11 @@
 # run=false (#904); any other skip fails closed.
 set -euo pipefail
 
-readonly FULL='["ubuntu-26.04","macos-26","windows-2025"]'
+# Fork-local: macos-26 is dropped because this account is never allocated a
+# macOS runner — the leg queues ~15 min, is cancelled with no runner assigned,
+# and the rust-test-result rollup then fails on `abandoned` even though every
+# leg that ran passed. Upstream keeps macOS; re-add it here if that changes.
+readonly FULL='["ubuntu-26.04","windows-2025"]'
 readonly SKIP_MATRIX='["ubuntu-26.04"]'
 
 emit() {
